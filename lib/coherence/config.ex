@@ -75,7 +75,7 @@ defmodule Coherence.Config do
     {:unlock_timeout_minutes, 20},
     {:unlock_token_expire_minutes, 5},
     {:session_key, "session_auth"},
-    {:rememberable_cookie_expire_hours, 2*24 }
+    {:rememberable_cookie_expire_hours, 2 * 24}
   ]
   |> Enum.each(fn
         {key, default} ->

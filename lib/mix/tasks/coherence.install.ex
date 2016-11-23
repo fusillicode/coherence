@@ -668,7 +668,7 @@ config :coherence, #{base}.Coherence.Mailer,
 
   defp do_default_config(config, opts) do
     list_to_atoms(@default_booleans)
-    |> Enum.reduce( config, fn opt, acc ->
+    |> Enum.reduce(config, fn opt, acc ->
       Map.put acc, opt, Keyword.get(opts, opt, true)
     end)
   end

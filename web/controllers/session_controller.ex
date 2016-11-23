@@ -284,7 +284,7 @@ defmodule Coherence.SessionController do
   @doc """
   Save the login cookie.
   """
-  def save_login_cookie(conn, id, series, token, key \\ "coherence_login", expire \\ 2*24*60*60) do
+  def save_login_cookie(conn, id, series, token, key \\ "coherence_login", expire \\ 2 * 24 * 60 * 60) do
     put_resp_cookie conn, key, gen_cookie(id, series, token), max_age: expire
   end
 
