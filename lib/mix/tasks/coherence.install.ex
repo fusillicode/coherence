@@ -384,7 +384,7 @@ config :coherence, #{base}.Coherence.Mailer,
   defp gen_rememberable_migration(config), do: config
 
 
-  defp do_gen_migration(%{timestamp: timestamp} = config, name, fun) do
+  defp do_gen_migration(%{timestamp: migration_timestamp} = config, name, fun) do
     repo = config[:repo]
     |> String.split(".")
     |> Module.concat
@@ -394,7 +394,7 @@ config :coherence, #{base}.Coherence.Mailer,
       _ ->
         Path.relative_to(migrations_path(repo), Mix.Project.app_path)
     end
-    file = Path.join(path, "#{timestamp}_#{underscore(name)}.exs")
+    file = Path.join(path, "#{migration_timestamp}_#{underscore(name)}.exs")
     fun.(repo, path, file, name)
     Map.put(config, :timestamp, timestamp + 1)
   end
